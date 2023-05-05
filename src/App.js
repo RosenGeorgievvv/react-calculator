@@ -2,7 +2,12 @@ import './App.css';
 
 function App() {
   return (
-  <div><h1>Hello World</h1></div>
+    <div className='container'>
+      <div className='wrapper'>
+        <div className='screen'></div>
+        <div className='btn light-gray' onClick={reset}>AC</div>
+      </div>
+    </div>
   );
 }
 
