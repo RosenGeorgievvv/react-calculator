@@ -16,9 +16,7 @@ function App() {
       setPreState("");
     }
 
-    curState
-      ? setCurState((pre) => pre + e.target.innerText)
-      : setCurState(e.target.innerText);
+    curState ? setCurState((pre) => pre + e.target.innerText) : setCurState(e.target.innerText);
     setTotal(false);
   };
 
@@ -29,10 +27,13 @@ function App() {
   useEffect(() => {
     setInput("0");
   }, []);
+
   const operatorType = (e) => {
     setTotal(false);
     setOperator(e.target.innerText);
+
     if (curState === "") return;
+
     if (preState !== "") {
       equals();
     } else {
@@ -45,26 +46,26 @@ function App() {
     if (e?.target.innerText === "=") {
       setTotal(true);
     }
-    let cal;
+    let calc;
     switch (operator) {
       case "/":
-        cal = String(parseFloat(preState) / parseFloat(curState));
+        calc = String(parseFloat(preState) / parseFloat(curState));
         break;
 
       case "+":
-        cal = String(parseFloat(preState) + parseFloat(curState));
+        calc = String(parseFloat(preState) + parseFloat(curState));
         break;
       case "X":
-        cal = String(parseFloat(preState) * parseFloat(curState));
+        calc = String(parseFloat(preState) * parseFloat(curState));
         break;
       case "-":
-        cal = String(parseFloat(preState) - parseFloat(curState));
+        calc = String(parseFloat(preState) - parseFloat(curState));
         break;
       default:
         return;
     }
     setInput("");
-    setPreState(cal);
+    setPreState(calc);
     setCurState("");
   };
 
